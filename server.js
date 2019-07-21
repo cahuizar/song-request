@@ -7,11 +7,19 @@ const API_URL = '/api';
 
 connectDB()
 
-app.use(express.json({extended: false}));
+app.use(express.json({
+    extended: false
+}));
 
 app.get('/', (req, res) => {
-    res.json({msg: 'Welcome to the song request api'})
+    res.json({
+        msg: 'Welcome to the song request api'
+    })
 })
+
+app.use(`${API_URL}/users`, require('./routes/users'));
+app.use(`${API_URL}/auth`, require('./routes/auth'));
+//app.use(`${API_URL}/songs`, require('./routes/songs'));
 
 const PORT = process.env.PORT || 5000;
 
