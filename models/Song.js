@@ -19,7 +19,7 @@ const SongSchema = mongoose.Schema({
   },
   date: {
     type: Date,
-    defaulf: Date.now
+    default: Date.now
   }
 });
 
