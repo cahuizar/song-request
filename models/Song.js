@@ -1,21 +1,21 @@
 const mongoose = require('mongoose');
 
 const SongSchema = mongoose.Schema({
-  firtsName: {
+  name: {
     type: String,
-    required: true
+    required: false
   },
-  lastName: {
-    type: String,
-    required: true
-  },
-  song: {
+  songName: {
     type: String,
     required: true
   },
   artist: {
     type: String,
     required: true
+  },
+  link: {
+    type: String,
+    required: false
   },
   date: {
     type: Date,
