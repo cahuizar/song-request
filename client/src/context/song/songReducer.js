@@ -18,7 +18,7 @@ export default (state, action) => {
     case ADD_SONG:
       return {
         ...state,
-        songs: [action.payload, ...state.contact]
+        songs: [action.payload, ...state.songs]
       };
     default:
       return state;

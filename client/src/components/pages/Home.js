@@ -1,9 +1,10 @@
 import React from 'react';
+import SongForm from '../songs/SongForm';
 
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
+    <div className='home container'>
+      <SongForm />
     </div>
   );
 };

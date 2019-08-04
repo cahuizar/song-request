@@ -29,10 +29,19 @@ router.post(
   [
     auth,
     [
-      check('songName', 'Please enter a valid song name')
+      check('name', 'Please enter your full name / Por favor escribe tu nombre')
         .not()
         .isEmpty(),
-      check('artist', 'Please enter a valid artist')
+      check(
+        'songName',
+        'Please enter the name of the song / Por favor escribe el nombre de la cancion'
+      )
+        .not()
+        .isEmpty(),
+      check(
+        'artist',
+        'Please enter the artist of the song / Por favor escrbie el nombre del artista'
+      )
         .not()
         .isEmpty()
     ]

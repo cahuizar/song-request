@@ -51,12 +51,14 @@ const SongState = props => {
 
   // Get songs
   const getSongs = () => {
-    dispatch({ type: GET_SONGS, action: state.songs });
+    dispatch({ type: GET_SONGS, payload: state.songs });
   };
 
   // Add song
   const addSong = song => {
-    dispatch({ type: ADD_SONG, action: song });
+    song.id = uuid.v4();
+    console.log(song);
+    dispatch({ type: ADD_SONG, payload: song });
   };
 
   // Update song
