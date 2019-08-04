@@ -1,9 +1,6 @@
 const express = require('express');
 const auth = require('../middleware/auth');
-const {
-  check,
-  validationResult
-} = require('express-validator');
+const { check, validationResult } = require('express-validator');
 
 const Song = require('../models/Song');
 
@@ -33,11 +30,11 @@ router.post(
     auth,
     [
       check('songName', 'Please enter a valid song name')
-      .not()
-      .isEmpty(),
+        .not()
+        .isEmpty(),
       check('artist', 'Please enter a valid artist')
-      .not()
-      .isEmpty()
+        .not()
+        .isEmpty()
     ]
   ],
   async (req, res) => {
@@ -46,18 +43,14 @@ router.post(
       return res.status(400).json({
         errors: errors.array()
       });
-    const {
-      name,
-      songName,
-      artist,
-      link
-    } = req.body;
+    const { name, songName, artist, link, message } = req.body;
     try {
       let newSong = new Song({
         name,
         songName,
         artist,
-        link
+        link,
+        message
       });
       const song = await newSong.save();
       res.json({
@@ -74,12 +67,7 @@ router.post(
 // @desc      Update songs
 // @access    Private
 router.put('/:id', auth, async (req, res) => {
-  const {
-    name,
-    songName,
-    artist,
-    link
-  } = req.body;
+  const { name, songName, artist, link } = req.body;
 
   // Build song object
   const songFields = {};
@@ -90,14 +78,17 @@ router.put('/:id', auth, async (req, res) => {
 
   try {
     let song = await Song.findById(req.params.id);
-    if (!song) return res.status(404).json({
-      msg: 'Song not found'
-    });
+    if (!song)
+      return res.status(404).json({
+        msg: 'Song not found'
+      });
 
     song = await Song.findByIdAndUpdate(
-      req.params.id, {
+      req.params.id,
+      {
         $set: songFields
-      }, {
+      },
+      {
         new: true
       }
     );
@@ -114,9 +105,10 @@ router.put('/:id', auth, async (req, res) => {
 router.delete('/:id', auth, async (req, res) => {
   try {
     let song = await Song.findById(req.params.id);
-    if (!song) return res.status(404).json({
-      msg: 'Song not found'
-    });
+    if (!song)
+      return res.status(404).json({
+        msg: 'Song not found'
+      });
     await Song.findByIdAndRemove(req.params.id);
     res.json({
       msg: 'Song removed'

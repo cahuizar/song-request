@@ -17,10 +17,14 @@ const SongSchema = mongoose.Schema({
     type: String,
     required: false
   },
+  message: {
+    type: String,
+    required: false
+  },
   date: {
     type: Date,
     default: Date.now
   }
 });
 
-module.exports = mongoose.model('song', SongSchema)
+module.exports = mongoose.model('song', SongSchema);

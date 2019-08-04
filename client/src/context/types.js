@@ -1,6 +1,8 @@
 export const ADD_SONG = 'ADD_SONG';
+export const GET_SONGS = 'GET_SONGS';
 export const DELETE_SONG = 'DELETE_SONG';
 export const UPDATE_SONG = 'UPDATE_CONTACT';
+export const CLEAR_SONGS = 'CLEAR_SONGS';
 export const FILTER_SONG = 'FILTER_SONG';
 export const CLEAR_FILTER = 'CLEAR_FILTER';
 export const SET_ALERT = 'SET_ALERT';
