@@ -1,17 +1,45 @@
-.home.container {
-  height: 100vh;
+body {
+  overflow: hidden;
 }
 
-.song-form {
-  height: 100%;
+.vh-95 {
+  height: 95vh;
 }
-.song-form {
-  background: white;
+.hide-s {
+  display: none;
 }
+
+.banner {
+  position: absolute;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-image: url(https://via.placeholder.com/2000x1000.png?text=Sample+Image);
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.relative {
+  position: relative;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.mt-1 {
+  margin-top: 1em;
+}
+
 /* medium */
 @media screen and (min-width: 600px) {
   .song-form-row {
     width: 85%;
+  }
+  .hide-s {
+    display: block;
   }
 }
 

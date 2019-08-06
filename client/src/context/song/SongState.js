@@ -10,7 +10,8 @@ import {
   FILTER_SONG,
   CLEAR_FILTER,
   GET_SONGS,
-  CLEAR_SONGS
+  CLEAR_SONGS,
+  SET_LANGUAGE
 } from '../types';
 
 const SongState = props => {
@@ -41,7 +42,8 @@ const SongState = props => {
         message: 'We all love you guys!'
       }
     ],
-    error: null
+    error: null,
+    language: null
   };
   const [state, dispatch] = useReducer(songReducer, intialState);
 
@@ -57,7 +59,6 @@ const SongState = props => {
   // Add song
   const addSong = song => {
     song.id = uuid.v4();
-    console.log(song);
     dispatch({ type: ADD_SONG, payload: song });
   };
 
@@ -71,9 +72,21 @@ const SongState = props => {
 
   // Clear filter
 
+  // Set Language
+  const setLanguage = lang => {
+    dispatch({ type: SET_LANGUAGE, payload: lang });
+  };
+
   return (
     <SongContext.Provider
-      value={{ songs: state.songs, error: state.error, getSongs, addSong }}
+      value={{
+        songs: state.songs,
+        error: state.error,
+        language: state.language,
+        getSongs,
+        addSong,
+        setLanguage
+      }}
     >
       {props.children}
     </SongContext.Provider>

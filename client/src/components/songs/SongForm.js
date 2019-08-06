@@ -1,10 +1,10 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useContext, useState, Fragment } from 'react';
 import M from 'materialize-css';
 import SongContext from '../../context/song/songContext';
 
 const SongForm = () => {
   const songContext = useContext(SongContext);
-  const { addSong } = songContext;
+  const { addSong, setLanguage, language } = songContext;
   const [song, setSong] = useState({
     name: '',
     songName: '',
@@ -20,121 +20,144 @@ const SongForm = () => {
 
   const onChange = e => setSong({ ...song, [e.target.id]: e.target.value });
 
+  const back = () => {
+    setLanguage(null);
+  }
+
   const onSubmit = e => {
     e.preventDefault();
     addSong(song);
   };
   return (
-    <div className='valign-wrapper song-form'>
-      <div className='row '>
-        <form className='col s12 song-form' onSubmit={onSubmit}>
-          <div className='row'>
-            <div className='col s12'>
-              <h2>Song Request</h2>
-              <p>
-                Fill out the information below to get play your song during the
-                reception:
-              </p>
-            </div>
+    <Fragment>
+      <form onSubmit={onSubmit}>
+        <div className='row'>
+          <div className='col s12'>
+            <h2>{language === 'EN' ? (
+                'Song Request'
+              ) : (
+                'Solicita La Canción'
+              )}</h2>
+            <p>
+              {language === 'EN' ? (
+                'Fill out the information below to get play your song during the reception:'
+              ) : (
+                'Completa la información a continuación para reproducir su canción durante la recepción:'
+              )}
+              
+            </p>
           </div>
-          <div className='row'>
-            <div className='input-field col s12'>
-              <input
-                type='text'
-                id='name'
-                className='validate'
-                value={name}
-                onChange={onChange}
-                required
-              />
-              <label htmlFor='name'>Full Name / Nombre Completo</label>
-              <span
-                className='helper-text'
-                data-error='Please enter your full name / Por favor escribe tu nombre'
+        </div>
+        <div className='row'>
+          <div className='input-field col s12'>
+            <input
+              type='text'
+              id='name'
+              className='validate'
+              value={name}
+              onChange={onChange}
+              required
+            />
+            <label htmlFor='name'>{language === "EN" ? ("Full Name") : ("Nombre Completo")}</label>
+            <span
+              className='helper-text'
+              data-error={language === "EN" ? ("Please enter your full name") : ("Por favor escribe tu nombre")}
+            >
+              {language === 'EN' ? ('Required') : ('Requirido')}
+            </span>
+          </div>
+        </div>
+        <div className='row'>
+          <div className='input-field col s12 m6'>
+            <input
+              type='text'
+              id='songName'
+              className='validate'
+              value={songName}
+              onChange={onChange}
+              required
+            />
+            <label htmlFor='songName'>{language === "EN" ? ("Song Name") : ("Nombre de Cancion")}</label>
+            <span
+              className='helper-text'
+              data-error={language === "EN" ? ("Please enter the name of the song") : ("Por favor escribe el nombre de la cancion")}
+            >
+              {language === "EN" ? ("Required") : ("Requirido")}
+            </span>
+          </div>
+          <div className='input-field col s12 m6'>
+            <input
+              type='text'
+              id='artist'
+              className='validate'
+              value={artist}
+              onChange={onChange}
+              required
+            />
+            <label htmlFor='artist'>{language === "EN" ? ("Artist") : ("Artista")}</label>
+            <span
+              className='helper-text'
+              data-error={language === "EN" ? ("Please enter the artist of the song") : ("Por favor escrbie el nombre del artista")}
+            >
+              {language === "EN" ? ("Required") : ("Requirido")}
+            </span>
+          </div>
+        </div>
+        <div className='row'>
+          <div className='input-field col s12'>
+            <input
+              type='text'
+              id='link'
+              className=''
+              value={link}
+              onChange={onChange}
+            />
+            <label htmlFor='link'>{language === "EN" ? ("Youtube Link") : ("Enlace de Youtube")}</label>
+            <span className='helper-text'>{language === "EN" ? ("Optional") : ("Opcional")}</span>
+          </div>
+        </div>
+        <div className='row'>
+          <div className='input-field col s12'>
+            <textarea
+              id='message'
+              className='materialize-textarea'
+              data-length='120'
+              value={message}
+              onChange={onChange}
+            />
+            <label htmlFor='message'>
+            {language === "EN" ? ("Message for the couple") : ("Mensage para la pareja")}
+            </label>
+            <span className='helper-text'>{language === "EN" ? ("Optional") : ("Opcional")}</span>
+          </div>
+        </div>
+        <div className='row'>
+          <div className='col s12 button-row'>
+            <div>
+              <button
+                type="button"
+                className='btn waves-effect waves-light'
+                name='back'
+                onClick={back}
               >
-                Required / Requirido
-              </span>
+                <i className='material-icons right'>arrow_back</i>
+                {language === "EN" ? ("Back") : ("Atras")}
+              </button>
             </div>
-          </div>
-          <div className='row'>
-            <div className='input-field col s12 m6'>
-              <input
-                type='text'
-                id='songName'
-                className='validate'
-                value={songName}
-                onChange={onChange}
-                required
-              />
-              <label htmlFor='songName'>Song Name / Nombre de Cancion</label>
-              <span
-                className='helper-text'
-                data-error='Please enter the name of the song / Por favor escribe el nombre de la cancion'
-              >
-                Required / Requirido
-              </span>
-            </div>
-            <div className='input-field col s12 m6'>
-              <input
-                type='text'
-                id='artist'
-                className='validate'
-                value={artist}
-                onChange={onChange}
-                required
-              />
-              <label htmlFor='artist'>Artist / Artista</label>
-              <span
-                className='helper-text'
-                data-error='Please enter the artist of the song / Por favor escrbie el nombre del artista'
-              >
-                Required / Requirido
-              </span>
-            </div>
-          </div>
-          <div className='row'>
-            <div className='input-field col s12'>
-              <input
-                type='text'
-                id='link'
-                className=''
-                value={link}
-                onChange={onChange}
-              />
-              <label htmlFor='link'>Youtube Link / Enlace de Youtube</label>
-              <span className='helper-text'>Optional / Opcional</span>
-            </div>
-          </div>
-          <div className='row'>
-            <div className='input-field col s12'>
-              <textarea
-                id='message'
-                className='materialize-textarea'
-                data-length='120'
-                value={message}
-                onChange={onChange}
-              />
-              <label htmlFor='message'>
-                Message for the couple / Mensage para la pareja
-              </label>
-              <span className='helper-text'>Optional / Opcional</span>
-            </div>
-          </div>
-          <div className='row'>
-            <div className='col s12'>
+            <div>
               <button
                 className='btn waves-effect waves-light'
                 type='submit'
                 name='action'
               >
-                Submit
+                {language === "EN" ? ("Submit") : ("Entregar")}
                 <i className='material-icons right'>send</i>
               </button>
             </div>
           </div>
-        </form>
-      </div>
-    </div>
+        </div>
+      </form>
+    </Fragment>
   );
 };
 
