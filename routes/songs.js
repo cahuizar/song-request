@@ -55,13 +55,12 @@ router.post(
       return res.status(400).json({
         errors: errors.array()
       });
-    const { name, songName, artist, message, language } = req.body;
+    const { name, songName, artist, language } = req.body;
     try {
       let newSong = new Song({
         name,
         songName,
         artist,
-        message,
         language
       });
       const song = await newSong.save();

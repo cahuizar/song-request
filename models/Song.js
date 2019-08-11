@@ -13,10 +13,6 @@ const SongSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  message: {
-    type: String,
-    required: false
-  },
   language: {
     type: String,
     required: true
