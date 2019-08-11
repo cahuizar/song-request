@@ -1,10 +1,12 @@
 import React from 'react';
 import SongTable from '../songs/SongTable';
 import Stats from '../stats/Stats';
+import Navbar from './Navbar';
 
 const Dashboard = () => {
   return (
     <div>
+      <Navbar />
       <div className='container'>
         <div className='row'>
           <Stats />

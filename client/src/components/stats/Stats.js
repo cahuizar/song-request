@@ -17,19 +17,19 @@ const Stats = () => {
         title='Songs'
         value={songs.length}
         icon='audiotrack'
-        color='red'
+        color='#7e57c2'
       />
       <StatItem
         title='Spanish'
         value={spanishCount}
         icon='person'
-        color='green'
+        color='#42a5f5'
       />
       <StatItem
         title='English'
         value={englishCount}
         icon='person'
-        color='blue'
+        color='#26a69a'
       />
     </Fragment>
   );

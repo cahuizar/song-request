@@ -20,6 +20,10 @@ body {
   background-repeat: no-repeat;
 }
 
+nav {
+  margin-bottom: 1em;
+}
+
 .relative {
   position: relative;
 }
@@ -39,6 +43,11 @@ body {
 
 table p label span.pl-20px {
   padding-left: 20px !important;
+}
+
+.card-panel:hover {
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+    0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
 }
 
 .stat.card-panel {
@@ -71,6 +80,9 @@ table p label span.pl-20px {
 
 /* medium */
 @media screen and (min-width: 600px) {
+  nav .brand-logo {
+    padding-left: 20px;
+  }
   .song-form-row {
     width: 85%;
   }
