@@ -4,14 +4,6 @@ const SongRow = ({ song }) => {
   const { _id, name, artist, songName, link } = song;
   return (
     <tr>
-      <td>
-        <p>
-          <label>
-            <input type='checkbox' name='selectSong' />
-            <span className='pl-20px' />
-          </label>
-        </p>
-      </td>
       <td>{name}</td>
       <td>{songName}</td>
       <td>{artist}</td>
@@ -19,6 +11,10 @@ const SongRow = ({ song }) => {
         <a href={link} target='_blank'>
           Link
         </a>
+      </td>
+      <td>
+        <button class='waves-effect waves-light btn blue edit-btn'>Edit</button>
+        <button class='waves-effect waves-light btn red'>Delete</button>
       </td>
     </tr>
   );

@@ -9,11 +9,11 @@ const SongTable = () => {
     <table className='highlight centered responsive-table'>
       <thead>
         <tr>
-          <th>Select</th>
           <th>Guest Name</th>
           <th>Song Name</th>
           <th>Artist Name</th>
           <th>Youtube Link</th>
+          <th />
         </tr>
       </thead>
       <tbody>
