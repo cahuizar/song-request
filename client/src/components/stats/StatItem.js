@@ -2,17 +2,14 @@ import React from 'react';
 
 const StatItem = ({ title, value, icon, color }) => {
   return (
-    <div className='col s12 m4'>
-      <div className='card-panel'>
-        <div className='stat-title' style={{ color: color }}>
-          {title}
-        </div>
-        <div className='stat-value' style={{ color: color }}>
-          {value}
-        </div>
+    <div className='col s6 m4'>
+      <div className='stat card-panel'>
         <div className='stat-icon' style={{ color: color }}>
-          <i class='large material-icons'>{icon}</i>
+          <i class='material-icons small'>{icon}</i>
         </div>
+
+        <div className='stat-value'>{value}</div>
+        <div className='stat-title'>{title}</div>
       </div>
     </div>
   );

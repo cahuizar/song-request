@@ -11,6 +11,9 @@ const Dashboard = () => {
         </div>
         <div className='row'>
           <div className='col s12'>
+            <h5 className='dashboard-header'>Songs Requested</h5>
+          </div>
+          <div className='col s12'>
             <div className='card-panel'>
               <SongTable />
             </div>
