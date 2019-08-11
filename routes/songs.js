@@ -43,6 +43,9 @@ router.post(
         'Please enter the artist of the song / Por favor escrbie el nombre del artista'
       )
         .not()
+        .isEmpty(),
+      check('language', 'Select your preferred language')
+        .not()
         .isEmpty()
     ]
   ],
@@ -52,14 +55,15 @@ router.post(
       return res.status(400).json({
         errors: errors.array()
       });
-    const { name, songName, artist, link, message } = req.body;
+    const { name, songName, artist, link, message, language } = req.body;
     try {
       let newSong = new Song({
         name,
         songName,
         artist,
         link,
-        message
+        message,
+        language
       });
       const song = await newSong.save();
       res.json({

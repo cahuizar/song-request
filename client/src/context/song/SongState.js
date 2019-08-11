@@ -23,15 +23,17 @@ const SongState = props => {
         songName: '11 pm',
         artist: 'Maluma',
         link: 'youtube.com/maluma',
-        message: 'Congrats on the wedding, we all want to wish you well'
+        message: 'Congrats on the wedding, we all want to wish you well',
+        language: 'SP'
       },
       {
         _id: uuid.v4(),
-        name: 'Val;eria Huizar',
+        name: 'Valeria Huizar',
         songName: 'No problem',
         artist: 'Chance The Rapper',
         link: 'youtube.com/chance',
-        message: 'Bruh you ugly, but Hailey cute'
+        message: 'Bruh you ugly, but Hailey cute',
+        language: 'SP'
       },
       {
         _id: uuid.v4(),
@@ -39,7 +41,8 @@ const SongState = props => {
         songName: 'La cucaracha',
         artist: 'Noseguey',
         link: 'youtube.com/noseguey',
-        message: 'We all love you guys!'
+        message: 'We all love you guys!',
+        language: 'EN'
       }
     ],
     error: null,
@@ -59,6 +62,7 @@ const SongState = props => {
   // Add song
   const addSong = song => {
     song._id = uuid.v4();
+    song.language = state.language;
     dispatch({ type: ADD_SONG, payload: song });
   };
 
