@@ -18,7 +18,7 @@ const SongState = props => {
   const intialState = {
     songs: [
       {
-        id: uuid.v4(),
+        _id: uuid.v4(),
         name: 'Veronica Chapa',
         songName: '11 pm',
         artist: 'Maluma',
@@ -26,7 +26,7 @@ const SongState = props => {
         message: 'Congrats on the wedding, we all want to wish you well'
       },
       {
-        id: uuid.v4(),
+        _id: uuid.v4(),
         name: 'Val;eria Huizar',
         songName: 'No problem',
         artist: 'Chance The Rapper',
@@ -34,7 +34,7 @@ const SongState = props => {
         message: 'Bruh you ugly, but Hailey cute'
       },
       {
-        id: uuid.v4(),
+        _id: uuid.v4(),
         name: 'Holly Whitten',
         songName: 'La cucaracha',
         artist: 'Noseguey',
@@ -58,7 +58,7 @@ const SongState = props => {
 
   // Add song
   const addSong = song => {
-    song.id = uuid.v4();
+    song._id = uuid.v4();
     dispatch({ type: ADD_SONG, payload: song });
   };
 

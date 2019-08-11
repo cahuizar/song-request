@@ -33,6 +33,10 @@ body {
   margin-top: 1em;
 }
 
+.text-center {
+  text-align: center;
+}
+
 /* medium */
 @media screen and (min-width: 600px) {
   .song-form-row {
