@@ -22,7 +22,7 @@ const SongForm = () => {
 
   const back = () => {
     setLanguage(null);
-  }
+  };
 
   const onSubmit = e => {
     e.preventDefault();
@@ -33,18 +33,13 @@ const SongForm = () => {
       <form onSubmit={onSubmit}>
         <div className='row'>
           <div className='col s12'>
-            <h2>{language === 'EN' ? (
-                'Song Request'
-              ) : (
-                'Solicita La Canción'
-              )}</h2>
+            <h2>
+              {language === 'EN' ? 'Song Request' : 'Solicita La Canción'}
+            </h2>
             <p>
-              {language === 'EN' ? (
-                'Fill out the information below to get play your song during the reception:'
-              ) : (
-                'Completa la información a continuación para reproducir su canción durante la recepción:'
-              )}
-              
+              {language === 'EN'
+                ? 'Fill out the information below to get play your song during the reception:'
+                : 'Completa la información a continuación para reproducir su canción durante la recepción:'}
             </p>
           </div>
         </div>
@@ -58,12 +53,18 @@ const SongForm = () => {
               onChange={onChange}
               required
             />
-            <label htmlFor='name'>{language === "EN" ? ("Full Name") : ("Nombre Completo")}</label>
+            <label htmlFor='name'>
+              {language === 'EN' ? 'Full Name' : 'Nombre Completo'}
+            </label>
             <span
               className='helper-text'
-              data-error={language === "EN" ? ("Please enter your full name") : ("Por favor escribe tu nombre")}
+              data-error={
+                language === 'EN'
+                  ? 'Please enter your full name'
+                  : 'Por favor escribe tu nombre'
+              }
             >
-              {language === 'EN' ? ('Required') : ('Requirido')}
+              {language === 'EN' ? 'Required' : 'Requirido'}
             </span>
           </div>
         </div>
@@ -77,12 +78,18 @@ const SongForm = () => {
               onChange={onChange}
               required
             />
-            <label htmlFor='songName'>{language === "EN" ? ("Song Name") : ("Nombre de Cancion")}</label>
+            <label htmlFor='songName'>
+              {language === 'EN' ? 'Song Name' : 'Nombre de Cancion'}
+            </label>
             <span
               className='helper-text'
-              data-error={language === "EN" ? ("Please enter the name of the song") : ("Por favor escribe el nombre de la cancion")}
+              data-error={
+                language === 'EN'
+                  ? 'Please enter the name of the song'
+                  : 'Por favor escribe el nombre de la cancion'
+              }
             >
-              {language === "EN" ? ("Required") : ("Requirido")}
+              {language === 'EN' ? 'Required' : 'Requirido'}
             </span>
           </div>
           <div className='input-field col s12 m6'>
@@ -94,54 +101,32 @@ const SongForm = () => {
               onChange={onChange}
               required
             />
-            <label htmlFor='artist'>{language === "EN" ? ("Artist") : ("Artista")}</label>
+            <label htmlFor='artist'>
+              {language === 'EN' ? 'Artist' : 'Artista'}
+            </label>
             <span
               className='helper-text'
-              data-error={language === "EN" ? ("Please enter the artist of the song") : ("Por favor escrbie el nombre del artista")}
+              data-error={
+                language === 'EN'
+                  ? 'Please enter the artist of the song'
+                  : 'Por favor escrbie el nombre del artista'
+              }
             >
-              {language === "EN" ? ("Required") : ("Requirido")}
+              {language === 'EN' ? 'Required' : 'Requirido'}
             </span>
-          </div>
-        </div>
-        <div className='row'>
-          <div className='input-field col s12'>
-            <input
-              type='text'
-              id='link'
-              className=''
-              value={link}
-              onChange={onChange}
-            />
-            <label htmlFor='link'>{language === "EN" ? ("Youtube Link") : ("Enlace de Youtube")}</label>
-            <span className='helper-text'>{language === "EN" ? ("Optional") : ("Opcional")}</span>
-          </div>
-        </div>
-        <div className='row'>
-          <div className='input-field col s12'>
-            <textarea
-              id='message'
-              className='materialize-textarea'
-              data-length='120'
-              value={message}
-              onChange={onChange}
-            />
-            <label htmlFor='message'>
-            {language === "EN" ? ("Message for the couple") : ("Mensage para la pareja")}
-            </label>
-            <span className='helper-text'>{language === "EN" ? ("Optional") : ("Opcional")}</span>
           </div>
         </div>
         <div className='row'>
           <div className='col s12 button-row'>
             <div>
               <button
-                type="button"
+                type='button'
                 className='btn waves-effect waves-light'
                 name='back'
                 onClick={back}
               >
                 <i className='material-icons right'>arrow_back</i>
-                {language === "EN" ? ("Back") : ("Atras")}
+                {language === 'EN' ? 'Back' : 'Atras'}
               </button>
             </div>
             <div>
@@ -150,7 +135,7 @@ const SongForm = () => {
                 type='submit'
                 name='action'
               >
-                {language === "EN" ? ("Submit") : ("Entregar")}
+                {language === 'EN' ? 'Submit' : 'Entregar'}
                 <i className='material-icons right'>send</i>
               </button>
             </div>

@@ -22,7 +22,6 @@ const SongState = props => {
         name: 'Veronica Chapa',
         songName: '11 pm',
         artist: 'Maluma',
-        link: 'youtube.com/maluma',
         message: 'Congrats on the wedding, we all want to wish you well',
         language: 'SP'
       },
@@ -31,7 +30,6 @@ const SongState = props => {
         name: 'Valeria Huizar',
         songName: 'No problem',
         artist: 'Chance The Rapper',
-        link: 'youtube.com/chance',
         message: 'Bruh you ugly, but Hailey cute',
         language: 'SP'
       },
@@ -40,7 +38,6 @@ const SongState = props => {
         name: 'Holly Whitten',
         songName: 'La cucaracha',
         artist: 'Noseguey',
-        link: 'youtube.com/noseguey',
         message: 'We all love you guys!',
         language: 'EN'
       }

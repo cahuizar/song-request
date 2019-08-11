@@ -12,7 +12,6 @@ const SongTable = () => {
           <th>Guest Name</th>
           <th>Song Name</th>
           <th>Artist Name</th>
-          <th>Youtube Link</th>
           <th />
         </tr>
       </thead>
