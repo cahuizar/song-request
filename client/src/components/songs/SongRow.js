@@ -8,7 +8,7 @@ const SongRow = ({ song }) => {
         <p>
           <label>
             <input type='checkbox' name='selectSong' />
-            <span />
+            <span className='pl-20px' />
           </label>
         </p>
       </td>

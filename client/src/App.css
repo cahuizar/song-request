@@ -37,6 +37,10 @@ body {
   text-align: center;
 }
 
+table p label span.pl-20px {
+  padding-left: 20px !important;
+}
+
 /* medium */
 @media screen and (min-width: 600px) {
   .song-form-row {
