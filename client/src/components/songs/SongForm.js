@@ -33,12 +33,10 @@ const SongForm = () => {
       <form onSubmit={onSubmit}>
         <div className='row'>
           <div className='col s12'>
-            <h2>
-              {language === 'EN' ? 'Song Request' : 'Solicita La Canción'}
-            </h2>
+            <h2>{language === 'EN' ? 'Information' : 'Información'}</h2>
             <p>
               {language === 'EN'
-                ? 'Fill out the information below to get play your song during the reception:'
+                ? 'Fill out the form below to play your song during the reception:'
                 : 'Completa la información a continuación para reproducir su canción durante la recepción:'}
             </p>
           </div>

@@ -1,27 +1,126 @@
 body {
-  overflow: hidden;
+  font-family: 'Lato', sans-serif;
 }
-
-.vh-95 {
-  height: 95vh;
-}
-.hide-s {
-  display: none;
+.home {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
 }
 
 .banner {
-  position: absolute;
-  left: 0;
-  height: 100vh;
+  display: flex;
+  height: 100%;
   width: 100%;
-  background-image: url(https://via.placeholder.com/2000x1000.png?text=Sample+Image);
-  background-size: cover;
-  background-position: 50%;
-  background-repeat: no-repeat;
 }
+.banner {
+  background-image: linear-gradient(253deg, #3ba5b4 0, #38ba8a 100%);
+  padding: 112px 8px;
+  height: auto;
+  position: static;
+}
+
+.song-request {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.figures-wrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  overflow: hidden;
+  display: none;
+}
+
+.figures-wrapper__container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.figure {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+}
+
+.figure.one {
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+  top: 13%;
+  left: -4%;
+}
+
+.figure.two {
+  width: 0;
+  height: 0;
+  border-top: 95px solid transparent;
+  border-bottom: 78px solid transparent;
+  border-left: 180px solid rgba(255, 255, 255, 0.08);
+  bottom: 8%;
+  left: 11%;
+  background-color: transparent;
+  transform: rotate(-46deg);
+}
+
+.figure.three {
+  width: 75px;
+  height: 150px;
+  top: 55%;
+  left: -1%;
+  transform: rotate(-75deg);
+}
+
+.welcome {
+  display: flex;
+  color: white;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.welcome--section {
+  line-height: 36px;
+  text-align: center;
+  letter-spacing: 0;
+}
+
+.welcome__heading {
+  font-size: 3rem;
+  margin: 0 0 32px;
+  font-weight: 600;
+}
+
+.welcome__text {
+  max-width: 350px;
+  font-size: 1.375rem;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+
+.song-request__heading {
+  color: #38ba8a;
+  font-size: 3.5rem;
+  letter-spacing: 0;
+  line-height: 64px;
+  margin: 0 0 16px;
+  font-weight: bold;
+}
+
+/*  dashboard */
 
 nav {
   margin-bottom: 1em;
+  background-image: linear-gradient(253deg, #3ba5b4 0, #38ba8a 100%);
 }
 
 .relative {
@@ -93,11 +192,32 @@ table p label span.pl-20px {
   .hide-s {
     display: block;
   }
+
+  .song-request {
+    height: 100%;
+    width: 60%;
+  }
+  .banner {
+    height: 100%;
+    width: 40%;
+    padding: 0px;
+    position: unset;
+  }
+
+  .figures-wrapper {
+    display: block;
+  }
 }
 
 /* large */
 @media screen and (min-width: 992px) {
   .song-form-row {
     width: 60%;
+  }
+  .song-request {
+    width: 70%;
+  }
+  .banner {
+    width: 30%;
   }
 }
