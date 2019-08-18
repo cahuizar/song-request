@@ -2,23 +2,15 @@ body {
   font-family: 'Lato', sans-serif;
 }
 .home {
+  display: flex;
   width: 100%;
   height: 100vh;
-  display: flex;
   position: relative;
-  flex-wrap: wrap;
+  background-image: linear-gradient(253deg, #3ba5b4 0, #38ba8a 100%);
 }
 
-.banner {
-  display: flex;
-  height: 100%;
-  width: 100%;
-}
-.banner {
-  background-image: linear-gradient(253deg, #3ba5b4 0, #38ba8a 100%);
-  padding: 112px 8px;
-  height: auto;
-  position: static;
+.home > * {
+  z-index: 1000;
 }
 
 .song-request {
@@ -78,6 +70,42 @@ body {
   transform: rotate(-75deg);
 }
 
+.figure.four {
+  width: 75px;
+  height: 150px;
+  top: 55%;
+  left: -1%;
+  transform: rotate(-75deg);
+}
+
+.figure.five {
+  width: 250px;
+  height: 250px;
+  bottom: 17%;
+  right: 4%;
+  border-radius: 100%;
+}
+
+.figure.six {
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-bottom: 70px solid transparent;
+  border-left: 160px solid rgba(255, 255, 255, 0.08);
+  top: 9%;
+  right: 24%;
+  background-color: transparent;
+  transform: rotate(135deg);
+}
+
+.figure.seven {
+  width: 140px;
+  height: 140px;
+  bottom: 4%;
+  right: -2.1875rem;
+  border-radius: 100%;
+}
+
 .welcome {
   display: flex;
   color: white;
@@ -89,22 +117,48 @@ body {
 }
 
 .welcome--section {
-  line-height: 36px;
+  line-height: 60px;
   text-align: center;
   letter-spacing: 0;
 }
 
 .welcome__heading {
-  font-size: 3rem;
+  font-size: 5rem;
   margin: 0 0 32px;
   font-weight: 600;
 }
 
 .welcome__text {
-  max-width: 350px;
-  font-size: 1.375rem;
+  max-width: 600px;
+  font-size: 2.375rem;
   margin-bottom: 32px;
   font-weight: 300;
+}
+
+.welcome__button {
+  height: 54px;
+  min-width: 223px;
+  border: 1px solid white;
+  border-radius: 30px;
+  color: white;
+  font-size: 1.175rem;
+  text-align: center;
+  line-height: 100%;
+  box-shadow: 0 12px 24px rgba(34, 51, 49, 0.13);
+  background: transparent;
+  width: 40%;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.8s;
+}
+
+.welcome__button:hover,
+.welcome__button:focus,
+.welcome__button:active {
+  color: #38ba8a;
+  background: white;
+  border: none;
+  min-width: 300px;
 }
 
 .song-request__heading {
@@ -193,17 +247,6 @@ table p label span.pl-20px {
     display: block;
   }
 
-  .song-request {
-    height: 100%;
-    width: 60%;
-  }
-  .banner {
-    height: 100%;
-    width: 40%;
-    padding: 0px;
-    position: unset;
-  }
-
   .figures-wrapper {
     display: block;
   }
@@ -213,11 +256,5 @@ table p label span.pl-20px {
 @media screen and (min-width: 992px) {
   .song-form-row {
     width: 60%;
-  }
-  .song-request {
-    width: 70%;
-  }
-  .banner {
-    width: 30%;
   }
 }

@@ -9,6 +9,9 @@ const Welcome = () => {
           Get your song added on the playlist and get it to play during the
           ceremony!
         </div>
+        <div className='welcome--div__button'>
+          <button className='welcome__button'>get started</button>
+        </div>
       </div>
     </div>
   );
