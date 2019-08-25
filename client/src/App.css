@@ -1,6 +1,26 @@
 body {
   font-family: 'Lato', sans-serif;
 }
+
+h4 {
+  font-size: 2em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Modal */
+.modal {
+  border: 2px solid #38ba8a;
+  border-radius: 5px;
+  padding: 20px;
+}
+.modal-content p label input + span {
+  font-size: 1.4em !important;
+}
+
+/* Welcome page */
 .home {
   display: flex;
   width: 100%;
@@ -27,7 +47,6 @@ body {
   height: 100%;
   top: 0;
   overflow: hidden;
-  display: none;
 }
 
 .figures-wrapper__container {
@@ -48,6 +67,9 @@ body {
   border-radius: 100%;
   top: 13%;
   left: -4%;
+  animation-name: shapes;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
 }
 
 .figure.two {
@@ -60,6 +82,10 @@ body {
   left: 11%;
   background-color: transparent;
   transform: rotate(-46deg);
+  animation-delay: 2s;
+  animation-name: shapes;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
 }
 
 .figure.three {
@@ -68,6 +94,11 @@ body {
   top: 55%;
   left: -1%;
   transform: rotate(-75deg);
+  display: none;
+  animation-delay: 0.5s;
+  animation-name: shapes;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
 }
 
 .figure.four {
@@ -76,6 +107,11 @@ body {
   top: 55%;
   left: -1%;
   transform: rotate(-75deg);
+  display: none;
+  animation-delay: 1s;
+  animation-name: shapes;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
 }
 
 .figure.five {
@@ -84,6 +120,9 @@ body {
   bottom: 17%;
   right: 4%;
   border-radius: 100%;
+  animation-name: shapes;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
 }
 
 .figure.six {
@@ -96,6 +135,11 @@ body {
   right: 24%;
   background-color: transparent;
   transform: rotate(135deg);
+  display: none;
+  animation-delay: 2s;
+  animation-name: shapes;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
 }
 
 .figure.seven {
@@ -104,6 +148,23 @@ body {
   bottom: 4%;
   right: -2.1875rem;
   border-radius: 100%;
+  display: none;
+  animation-delay: 1;
+  animation-name: shapes;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shapes {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(0.5);
+  }
 }
 
 .welcome {
@@ -123,14 +184,14 @@ body {
 }
 
 .welcome__heading {
-  font-size: 5rem;
+  font-size: 3em;
   margin: 0 0 32px;
   font-weight: 600;
 }
 
 .welcome__text {
   max-width: 600px;
-  font-size: 2.375rem;
+  font-size: 2rem;
   margin-bottom: 32px;
   font-weight: 300;
 }
@@ -237,6 +298,9 @@ table p label span.pl-20px {
 
 /* medium */
 @media screen and (min-width: 600px) {
+  .modal {
+    width: 40%;
+  }
   nav .brand-logo {
     padding-left: 20px;
   }
@@ -247,13 +311,27 @@ table p label span.pl-20px {
     display: block;
   }
 
-  .figures-wrapper {
+  .figure.three,
+  .figure.four,
+  .figure.six,
+  .figure.seven {
     display: block;
+  }
+
+  .welcome__heading {
+    font-size: 5rem;
+  }
+
+  .welcome__text {
+    font-size: 2.6rem;
   }
 }
 
 /* large */
 @media screen and (min-width: 992px) {
+  .modal {
+    width: 20%;
+  }
   .song-form-row {
     width: 60%;
   }

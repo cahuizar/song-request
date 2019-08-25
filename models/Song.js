@@ -13,10 +13,6 @@ const SongSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  language: {
-    type: String,
-    required: true
-  },
   date: {
     type: Date,
     default: Date.now

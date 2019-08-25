@@ -5,8 +5,7 @@ import {
   FILTER_SONG,
   CLEAR_FILTER,
   GET_SONGS,
-  CLEAR_SONGS,
-  SET_LANGUAGE
+  CLEAR_SONGS
 } from '../types';
 
 export default (state, action) => {
@@ -20,11 +19,6 @@ export default (state, action) => {
       return {
         ...state,
         songs: [action.payload, ...state.songs]
-      };
-    case SET_LANGUAGE:
-      return {
-        ...state,
-        language: action.payload
       };
     default:
       return state;
