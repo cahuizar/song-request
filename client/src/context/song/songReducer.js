@@ -5,7 +5,9 @@ import {
   FILTER_SONG,
   CLEAR_FILTER,
   GET_SONGS,
-  CLEAR_SONGS
+  CLEAR_SONGS,
+  NEXT,
+  PREV
 } from '../types';
 
 export default (state, action) => {
@@ -19,6 +21,16 @@ export default (state, action) => {
       return {
         ...state,
         songs: [action.payload, ...state.songs]
+      };
+    case PREV:
+      return {
+        ...state,
+        step: action.payload--
+      };
+    case NEXT:
+      return {
+        ...state,
+        step: action.payload++
       };
     default:
       return state;

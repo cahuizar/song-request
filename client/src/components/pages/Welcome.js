@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Welcome = () => {
   return (
@@ -10,7 +11,9 @@ const Welcome = () => {
           reception!
         </div>
         <div className='welcome--div__button'>
-          <button className='welcome__button'>get started</button>
+          <Link to='/start'>
+            <button className='welcome__button'>get started</button>
+          </Link>
         </div>
       </div>
     </div>

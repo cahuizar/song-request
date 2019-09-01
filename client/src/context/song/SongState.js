@@ -10,11 +10,14 @@ import {
   FILTER_SONG,
   CLEAR_FILTER,
   GET_SONGS,
-  CLEAR_SONGS
+  CLEAR_SONGS,
+  PREV,
+  NEXT
 } from '../types';
 
 const SongState = props => {
   const intialState = {
+    step: 1,
     songs: [
       {
         _id: uuid.v4(),
@@ -48,6 +51,16 @@ const SongState = props => {
     dispatch({ type: GET_SONGS, payload: state.songs });
   };
 
+  // Previous forn
+  const prev = () => {
+    dispatch({ type: PREV, payload: state.step });
+  };
+
+  // Previous forn
+  const next = () => {
+    dispatch({ type: NEXT, payload: state.step });
+  };
+
   // Add song
   const addSong = song => {
     song._id = uuid.v4();
@@ -67,10 +80,13 @@ const SongState = props => {
   return (
     <SongContext.Provider
       value={{
+        step: state.step,
         songs: state.songs,
         error: state.error,
         getSongs,
-        addSong
+        addSong,
+        next,
+        prev
       }}
     >
       {props.children}

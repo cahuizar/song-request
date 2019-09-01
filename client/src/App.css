@@ -231,6 +231,44 @@ h4 {
   font-weight: bold;
 }
 
+/* Start */
+
+.start {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.userForm {
+  max-width: 600px;
+  width: 80%;
+  padding: 60px 40px;
+  background: white;
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+    0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  position: relative;
+}
+
+.userForm h4 {
+  margin-bottom: 1em;
+}
+
+.userForm .form-buttons {
+  margin-top: 2.5em;
+}
+.progress-bar {
+  position: absolute;
+  height: 5%;
+  max-height: 10px;
+  background-image: linear-gradient(253deg, #3ba5b4 0, #38ba8a 100%);
+  left: 0;
+  bottom: 0;
+  transition: all 3s;
+}
+
 /*  dashboard */
 
 nav {
@@ -325,6 +363,10 @@ table p label span.pl-20px {
   .welcome__text {
     font-size: 2.6rem;
   }
+
+  .userForm {
+    width: 60%;
+  }
 }
 
 /* large */
@@ -334,5 +376,9 @@ table p label span.pl-20px {
   }
   .song-form-row {
     width: 60%;
+  }
+
+  .userForm {
+    width: 35%;
   }
 }
