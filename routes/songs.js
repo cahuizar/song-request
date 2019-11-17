@@ -23,11 +23,10 @@ router.get('/', auth, async (req, res) => {
 
 // @route     POST api/songs
 // @desc      Add new song
-// @access    Private
+// @access    Public
 router.post(
   '/',
   [
-    auth,
     [
       check('name', 'Please enter your full name / Por favor escribe tu nombre')
         .not()
@@ -43,9 +42,6 @@ router.post(
         'Please enter the artist of the song / Por favor escrbie el nombre del artista'
       )
         .not()
-        .isEmpty(),
-      check('language', 'Select your preferred language')
-        .not()
         .isEmpty()
     ]
   ],
@@ -55,13 +51,12 @@ router.post(
       return res.status(400).json({
         errors: errors.array()
       });
-    const { name, songName, artist, language } = req.body;
+    const { name, songName, artist } = req.body;
     try {
       let newSong = new Song({
         name,
         songName,
-        artist,
-        language
+        artist
       });
       const song = await newSong.save();
       res.json({

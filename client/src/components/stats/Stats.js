@@ -5,9 +5,6 @@ import StatItem from './StatItem';
 const Stats = () => {
   const songContext = useContext(SongContext);
   const { songs } = songContext;
-  var englishCount = 0;
-  var spanishCount = 0;
-  songs.map(song => (song.language === 'EN' ? englishCount++ : spanishCount++));
   return (
     <Fragment>
       <div className='col s12'>
@@ -19,18 +16,8 @@ const Stats = () => {
         icon='audiotrack'
         color='#7e57c2'
       />
-      <StatItem
-        title='Spanish'
-        value={spanishCount}
-        icon='person'
-        color='#42a5f5'
-      />
-      <StatItem
-        title='English'
-        value={englishCount}
-        icon='person'
-        color='#26a69a'
-      />
+      <StatItem title='Spanish' value={10} icon='person' color='#42a5f5' />
+      <StatItem title='English' value={20} icon='person' color='#26a69a' />
     </Fragment>
   );
 };

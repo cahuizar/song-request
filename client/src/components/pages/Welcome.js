@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Welcome = () => {
   return (
@@ -6,8 +7,13 @@ const Welcome = () => {
       <div className='welcome--section'>
         <div className='welcome__heading'>Song Request</div>
         <div className='welcome__text'>
-          Get your song added on the playlist and get it to play during the
-          ceremony!
+          Add your song to our playlist and we will play it during the
+          reception!
+        </div>
+        <div className='welcome--div__button'>
+          <Link to='/start'>
+            <button className='welcome__button'>get started</button>
+          </Link>
         </div>
       </div>
     </div>

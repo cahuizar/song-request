@@ -5,42 +5,38 @@ import songReducer from './songReducer';
 import uuid from 'uuid';
 import {
   ADD_SONG,
-  DELETE_SONG,
-  UPDATE_SONG,
-  FILTER_SONG,
-  CLEAR_FILTER,
+  ADD_NAME,
+  ADD_SONG_NAME,
   GET_SONGS,
-  CLEAR_SONGS,
-  SET_LANGUAGE
+  PREV,
+  NEXT
 } from '../types';
 
 const SongState = props => {
   const intialState = {
+    step: 1,
+    song: null,
     songs: [
       {
         _id: uuid.v4(),
         name: 'Veronica Chapa',
         songName: '11 pm',
-        artist: 'Maluma',
-        language: 'SP'
+        artist: 'Maluma'
       },
       {
         _id: uuid.v4(),
         name: 'Valeria Huizar',
         songName: 'No problem',
-        artist: 'Chance The Rapper',
-        language: 'SP'
+        artist: 'Chance The Rapper'
       },
       {
         _id: uuid.v4(),
         name: 'Holly Whitten',
         songName: 'La cucaracha',
-        artist: 'Noseguey',
-        language: 'EN'
+        artist: 'Noseguey'
       }
     ],
-    error: null,
-    language: null
+    error: null
   };
   const [state, dispatch] = useReducer(songReducer, intialState);
 
@@ -53,37 +49,57 @@ const SongState = props => {
     dispatch({ type: GET_SONGS, payload: state.songs });
   };
 
-  // Add song
-  const addSong = song => {
-    song._id = uuid.v4();
-    song.language = state.language;
-    dispatch({ type: ADD_SONG, payload: song });
+  // Previous forn
+  const prev = () => {
+    dispatch({ type: PREV, payload: state.step });
   };
 
-  // Update song
+  // next forn
+  const next = () => {
+    dispatch({ type: NEXT });
+  };
 
-  // Delete song
+  // add name
+  const addName = value => {
+    dispatch({ type: ADD_NAME, payload: value });
+    next();
+  };
 
-  // Clear songs - used when the user logouts
+  // add song name
+  const addSongName = value => {
+    dispatch({ type: ADD_SONG_NAME, payload: value });
+    next();
+  };
 
-  // Filter songs
-
-  // Clear filter
-
-  // Set Language
-  const setLanguage = lang => {
-    dispatch({ type: SET_LANGUAGE, payload: lang });
+  // Add song
+  const addSong = async value => {
+    let song = {
+      name: state.name,
+      songName: state.songName,
+      artist: value
+    };
+    try {
+      await axios.post('/api/songs', song, config);
+      dispatch({ type: ADD_SONG, payload: song });
+      next();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <SongContext.Provider
       value={{
+        step: state.step,
+        song: state.song,
         songs: state.songs,
         error: state.error,
-        language: state.language,
+        addName,
+        addSongName,
         getSongs,
         addSong,
-        setLanguage
+        next,
+        prev
       }}
     >
       {props.children}

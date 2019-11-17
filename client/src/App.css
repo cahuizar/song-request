@@ -1,24 +1,36 @@
 body {
   font-family: 'Lato', sans-serif;
 }
-.home {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
+
+h4 {
+  font-size: 2em;
 }
 
-.banner {
-  display: flex;
-  height: 100%;
-  width: 100%;
+.text-center {
+  text-align: center;
 }
-.banner {
+
+/* Modal */
+.modal {
+  border: 2px solid #38ba8a;
+  border-radius: 5px;
+  padding: 20px;
+}
+.modal-content p label input + span {
+  font-size: 1.4em !important;
+}
+
+/* Welcome page */
+.home {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  position: relative;
   background-image: linear-gradient(253deg, #3ba5b4 0, #38ba8a 100%);
-  padding: 112px 8px;
-  height: auto;
-  position: static;
+}
+
+.home > * {
+  z-index: 1000;
 }
 
 .song-request {
@@ -35,7 +47,6 @@ body {
   height: 100%;
   top: 0;
   overflow: hidden;
-  display: none;
 }
 
 .figures-wrapper__container {
@@ -56,6 +67,9 @@ body {
   border-radius: 100%;
   top: 13%;
   left: -4%;
+  animation-name: shapes;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
 }
 
 .figure.two {
@@ -68,6 +82,10 @@ body {
   left: 11%;
   background-color: transparent;
   transform: rotate(-46deg);
+  animation-delay: 2s;
+  animation-name: shapes;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
 }
 
 .figure.three {
@@ -76,6 +94,77 @@ body {
   top: 55%;
   left: -1%;
   transform: rotate(-75deg);
+  display: none;
+  animation-delay: 0.5s;
+  animation-name: shapes;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+.figure.four {
+  width: 75px;
+  height: 150px;
+  top: 55%;
+  left: -1%;
+  transform: rotate(-75deg);
+  display: none;
+  animation-delay: 1s;
+  animation-name: shapes;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+.figure.five {
+  width: 250px;
+  height: 250px;
+  bottom: 17%;
+  right: 4%;
+  border-radius: 100%;
+  animation-name: shapes;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+.figure.six {
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-bottom: 70px solid transparent;
+  border-left: 160px solid rgba(255, 255, 255, 0.08);
+  top: 9%;
+  right: 24%;
+  background-color: transparent;
+  transform: rotate(135deg);
+  display: none;
+  animation-delay: 2s;
+  animation-name: shapes;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+.figure.seven {
+  width: 140px;
+  height: 140px;
+  bottom: 4%;
+  right: -2.1875rem;
+  border-radius: 100%;
+  display: none;
+  animation-delay: 1;
+  animation-name: shapes;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shapes {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(0.5);
+  }
 }
 
 .welcome {
@@ -89,22 +178,48 @@ body {
 }
 
 .welcome--section {
-  line-height: 36px;
+  line-height: 60px;
   text-align: center;
   letter-spacing: 0;
 }
 
 .welcome__heading {
-  font-size: 3rem;
+  font-size: 3em;
   margin: 0 0 32px;
   font-weight: 600;
 }
 
 .welcome__text {
-  max-width: 350px;
-  font-size: 1.375rem;
+  max-width: 600px;
+  font-size: 2rem;
   margin-bottom: 32px;
   font-weight: 300;
+}
+
+.welcome__button {
+  height: 54px;
+  min-width: 223px;
+  border: 1px solid white;
+  border-radius: 30px;
+  color: white;
+  font-size: 1.175rem;
+  text-align: center;
+  line-height: 100%;
+  box-shadow: 0 12px 24px rgba(34, 51, 49, 0.13);
+  background: transparent;
+  width: 40%;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.8s;
+}
+
+.welcome__button:hover,
+.welcome__button:focus,
+.welcome__button:active {
+  color: #38ba8a;
+  background: white;
+  border: none;
+  min-width: 300px;
 }
 
 .song-request__heading {
@@ -114,6 +229,86 @@ body {
   line-height: 64px;
   margin: 0 0 16px;
   font-weight: bold;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.last-message {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.date {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.success-label {
+  font-size: 1.1rem;
+}
+
+.information {
+  margin: 10px auto 20px auto;
+}
+
+.success-value {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 10px;
+  text-transform: capitalize;
+}
+
+.xs-full,
+.sm-half {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+}
+
+.xs-full {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+/* Start */
+
+.start {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.userForm {
+  max-width: 600px;
+  width: 80%;
+  padding: 60px 40px;
+  background: white;
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+    0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  position: relative;
+}
+
+.userForm h4 {
+  margin-bottom: 1em;
+}
+
+.userForm .form-buttons {
+  margin-top: 2.5em;
+}
+.progress-bar {
+  position: absolute;
+  height: 5%;
+  max-height: 10px;
+  background-image: linear-gradient(253deg, #3ba5b4 0, #38ba8a 100%);
+  left: 0;
+  bottom: 0;
+  transition: all 3s;
 }
 
 /*  dashboard */
@@ -181,8 +376,18 @@ table p label span.pl-20px {
   font-size: 2.5em;
 }
 
+@media screen and (min-width: 576px) {
+  .sm-half {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
 /* medium */
 @media screen and (min-width: 600px) {
+  .modal {
+    width: 40%;
+  }
   nav .brand-logo {
     padding-left: 20px;
   }
@@ -193,31 +398,36 @@ table p label span.pl-20px {
     display: block;
   }
 
-  .song-request {
-    height: 100%;
-    width: 60%;
-  }
-  .banner {
-    height: 100%;
-    width: 40%;
-    padding: 0px;
-    position: unset;
+  .figure.three,
+  .figure.four,
+  .figure.six,
+  .figure.seven {
+    display: block;
   }
 
-  .figures-wrapper {
-    display: block;
+  .welcome__heading {
+    font-size: 5rem;
+  }
+
+  .welcome__text {
+    font-size: 2.6rem;
+  }
+
+  .userForm {
+    width: 60%;
   }
 }
 
 /* large */
 @media screen and (min-width: 992px) {
+  .modal {
+    width: 20%;
+  }
   .song-form-row {
     width: 60%;
   }
-  .song-request {
-    width: 70%;
-  }
-  .banner {
-    width: 30%;
+
+  .userForm {
+    width: 35%;
   }
 }

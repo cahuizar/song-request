@@ -4,7 +4,7 @@ import SongContext from '../../context/song/songContext';
 
 const SongForm = () => {
   const songContext = useContext(SongContext);
-  const { addSong, setLanguage, language } = songContext;
+  const { addSong } = songContext;
   const [song, setSong] = useState({
     name: '',
     songName: '',
@@ -20,10 +20,6 @@ const SongForm = () => {
 
   const onChange = e => setSong({ ...song, [e.target.id]: e.target.value });
 
-  const back = () => {
-    setLanguage(null);
-  };
-
   const onSubmit = e => {
     e.preventDefault();
     addSong(song);
@@ -33,11 +29,9 @@ const SongForm = () => {
       <form onSubmit={onSubmit}>
         <div className='row'>
           <div className='col s12'>
-            <h2>{language === 'EN' ? 'Information' : 'Información'}</h2>
+            <h2>Information</h2>
             <p>
-              {language === 'EN'
-                ? 'Fill out the form below to play your song during the reception:'
-                : 'Completa la información a continuación para reproducir su canción durante la recepción:'}
+              Fill out the form below to play your song during the reception:'
             </p>
           </div>
         </div>
@@ -51,18 +45,12 @@ const SongForm = () => {
               onChange={onChange}
               required
             />
-            <label htmlFor='name'>
-              {language === 'EN' ? 'Full Name' : 'Nombre Completo'}
-            </label>
+            <label htmlFor='name'>Full Name</label>
             <span
               className='helper-text'
-              data-error={
-                language === 'EN'
-                  ? 'Please enter your full name'
-                  : 'Por favor escribe tu nombre'
-              }
+              data-error='Please enter your full name'
             >
-              {language === 'EN' ? 'Required' : 'Requirido'}
+              Required
             </span>
           </div>
         </div>
@@ -76,18 +64,12 @@ const SongForm = () => {
               onChange={onChange}
               required
             />
-            <label htmlFor='songName'>
-              {language === 'EN' ? 'Song Name' : 'Nombre de Cancion'}
-            </label>
+            <label htmlFor='songName'>Song Name</label>
             <span
               className='helper-text'
-              data-error={
-                language === 'EN'
-                  ? 'Please enter the name of the song'
-                  : 'Por favor escribe el nombre de la cancion'
-              }
+              data-error='Please enter the name of the song'
             >
-              {language === 'EN' ? 'Required' : 'Requirido'}
+              Required
             </span>
           </div>
           <div className='input-field col s12 m6'>
@@ -99,18 +81,12 @@ const SongForm = () => {
               onChange={onChange}
               required
             />
-            <label htmlFor='artist'>
-              {language === 'EN' ? 'Artist' : 'Artista'}
-            </label>
+            <label htmlFor='artist'>Artist</label>
             <span
               className='helper-text'
-              data-error={
-                language === 'EN'
-                  ? 'Please enter the artist of the song'
-                  : 'Por favor escrbie el nombre del artista'
-              }
+              data-error='Por favor escrbie el nombre del artista'
             >
-              {language === 'EN' ? 'Required' : 'Requirido'}
+              Required
             </span>
           </div>
         </div>
@@ -118,22 +94,11 @@ const SongForm = () => {
           <div className='col s12 button-row'>
             <div>
               <button
-                type='button'
-                className='btn waves-effect waves-light'
-                name='back'
-                onClick={back}
-              >
-                <i className='material-icons right'>arrow_back</i>
-                {language === 'EN' ? 'Back' : 'Atras'}
-              </button>
-            </div>
-            <div>
-              <button
                 className='btn waves-effect waves-light'
                 type='submit'
                 name='action'
               >
-                {language === 'EN' ? 'Submit' : 'Entregar'}
+                Submit
                 <i className='material-icons right'>send</i>
               </button>
             </div>

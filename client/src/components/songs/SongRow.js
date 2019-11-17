@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SongRow = ({ song }) => {
-  const { _id, name, artist, songName } = song;
+  const { name, artist, songName } = song;
   return (
     <tr>
       <td>{name}</td>

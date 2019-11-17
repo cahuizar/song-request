@@ -1,12 +1,10 @@
 import {
   ADD_SONG,
-  DELETE_SONG,
-  UPDATE_SONG,
-  FILTER_SONG,
-  CLEAR_FILTER,
+  ADD_NAME,
+  ADD_SONG_NAME,
   GET_SONGS,
-  CLEAR_SONGS,
-  SET_LANGUAGE
+  NEXT,
+  PREV
 } from '../types';
 
 export default (state, action) => {
@@ -16,15 +14,30 @@ export default (state, action) => {
         ...state,
         songs: action.payload
       };
+    case ADD_NAME:
+      return {
+        ...state,
+        name: action.payload
+      };
+    case ADD_SONG_NAME:
+      return {
+        ...state,
+        songName: action.payload
+      };
     case ADD_SONG:
       return {
         ...state,
-        songs: [action.payload, ...state.songs]
+        song: action.payload
       };
-    case SET_LANGUAGE:
+    case PREV:
       return {
         ...state,
-        language: action.payload
+        step: --state.step
+      };
+    case NEXT:
+      return {
+        ...state,
+        step: ++state.step
       };
     default:
       return state;
