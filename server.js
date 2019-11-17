@@ -1,5 +1,6 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const path = require('path');
 
 const app = express();
 
@@ -7,11 +8,9 @@ const API_URL = '/api';
 
 connectDB();
 
-app.use(
-  express.json({
-    extended: false
-  })
-);
+// Init Middleware
+
+app.use(express.json({ extended: false }));
 
 app.use(`${API_URL}/users`, require('./routes/users'));
 app.use(`${API_URL}/auth`, require('./routes/auth'));
