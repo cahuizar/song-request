@@ -23,11 +23,10 @@ router.get('/', auth, async (req, res) => {
 
 // @route     POST api/songs
 // @desc      Add new song
-// @access    Private
+// @access    Public
 router.post(
   '/',
   [
-    auth,
     [
       check('name', 'Please enter your full name / Por favor escribe tu nombre')
         .not()

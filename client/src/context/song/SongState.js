@@ -5,12 +5,9 @@ import songReducer from './songReducer';
 import uuid from 'uuid';
 import {
   ADD_SONG,
-  DELETE_SONG,
-  UPDATE_SONG,
-  FILTER_SONG,
-  CLEAR_FILTER,
+  ADD_NAME,
+  ADD_SONG_NAME,
   GET_SONGS,
-  CLEAR_SONGS,
   PREV,
   NEXT
 } from '../types';
@@ -18,6 +15,7 @@ import {
 const SongState = props => {
   const intialState = {
     step: 1,
+    song: null,
     songs: [
       {
         _id: uuid.v4(),
@@ -56,33 +54,48 @@ const SongState = props => {
     dispatch({ type: PREV, payload: state.step });
   };
 
-  // Previous forn
+  // next forn
   const next = () => {
-    dispatch({ type: NEXT, payload: state.step });
+    dispatch({ type: NEXT });
+  };
+
+  // add name
+  const addName = value => {
+    dispatch({ type: ADD_NAME, payload: value });
+    next();
+  };
+
+  // add song name
+  const addSongName = value => {
+    dispatch({ type: ADD_SONG_NAME, payload: value });
+    next();
   };
 
   // Add song
-  const addSong = song => {
-    song._id = uuid.v4();
-    dispatch({ type: ADD_SONG, payload: song });
+  const addSong = async value => {
+    let song = {
+      name: state.name,
+      songName: state.songName,
+      artist: value
+    };
+    try {
+      await axios.post('/api/songs', song, config);
+      dispatch({ type: ADD_SONG, payload: song });
+      next();
+    } catch (err) {
+      console.log(err);
+    }
   };
-
-  // Update song
-
-  // Delete song
-
-  // Clear songs - used when the user logouts
-
-  // Filter songs
-
-  // Clear filter
 
   return (
     <SongContext.Provider
       value={{
         step: state.step,
+        song: state.song,
         songs: state.songs,
         error: state.error,
+        addName,
+        addSongName,
         getSongs,
         addSong,
         next,

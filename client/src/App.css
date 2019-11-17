@@ -231,6 +231,48 @@ h4 {
   font-weight: bold;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.last-message {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.date {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.success-label {
+  font-size: 1.1rem;
+}
+
+.information {
+  margin: 10px auto 20px auto;
+}
+
+.success-value {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 10px;
+  text-transform: capitalize;
+}
+
+.xs-full,
+.sm-half {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+}
+
+.xs-full {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
 /* Start */
 
 .start {
@@ -332,6 +374,13 @@ table p label span.pl-20px {
   margin-bottom: 25px;
   font-weight: 500;
   font-size: 2.5em;
+}
+
+@media screen and (min-width: 576px) {
+  .sm-half {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
 }
 
 /* medium */

@@ -1,16 +1,32 @@
-import React, { Fragment, useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import SongContext from '../../context/song/songContext';
 
 const Name = () => {
+  let textInput = React.createRef();
   const songContext = useContext(SongContext);
-  const next = e => {
-    songContext.next();
+
+  const [name, setName] = useState('');
+  const onChange = e => setName(e.target.value);
+  const onSubmit = e => {
+    e.preventDefault();
+    songContext.addName(name);
   };
+
   return (
-    <Fragment>
+    <form onSubmit={onSubmit}>
       <h4>What's your name?</h4>
       <div className='input-field'>
-        <input type='text' id='name' className='validate' required />
+        <input
+          type='text'
+          ref={textInput}
+          onChange={onChange}
+          id='name'
+          name='name'
+          value={name}
+          className='validate'
+          autoFocus
+          required
+        />
         <label htmlFor='name'>Full Name</label>
         <span
           className='helper-text'
@@ -19,15 +35,15 @@ const Name = () => {
       </div>
       <div className='form-buttons'>
         <button
+          type='submit'
           className='btn waves-effect waves-light'
-          onClick={next}
           name='action'
         >
           Next
           <i className='material-icons right'>send</i>
         </button>
       </div>
-    </Fragment>
+    </form>
   );
 };
 

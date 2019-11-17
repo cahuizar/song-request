@@ -1,20 +1,22 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import SongContext from '../../context/song/songContext';
 import Error from '../pages/Error';
 import Figures from '../pages/Figures';
 import ProgressBar from './ProgressBar';
 import Name from './Name';
-import Know from './Know';
-import Relationship from './Relationship';
 import Song from './Song';
 import Artist from './Artist';
-import Preview from './Preview';
 import Confirmation from './Confirmation';
+// eslint-disable-next-line
 import M from 'materialize-css';
 
 const Start = () => {
   const songContext = useContext(SongContext);
-  const { step } = songContext;
+  const { step, next } = songContext;
+
+  const nextPage = elem => {
+    next(elem.name, elem.value);
+  };
   return (
     <div className='home'>
       <Figures />
@@ -23,24 +25,18 @@ const Start = () => {
           {(() => {
             switch (step) {
               case 1:
-                return <Name />;
+                return <Name nextPage={nextPage} />;
               case 2:
-                return <Know />;
+                return <Song nextPage={nextPage} />;
               case 3:
-                return <Relationship />;
+                return <Artist nextPage={nextPage} />;
               case 4:
-                return <Song />;
-              case 5:
-                return <Artist />;
-              case 6:
-                return <Preview />;
-              case 7:
                 return <Confirmation />;
               default:
                 return <Error />;
             }
           })()}
-          <ProgressBar progress={(step / 7) * 100} />
+          <ProgressBar progress={(step / 4) * 100} />
         </div>
       </div>
     </div>
